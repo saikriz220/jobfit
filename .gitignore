@@ -1,0 +1,19 @@
+# Node.js (apiserver)
+apiserver/node_modules/
+apiserver/.env
+
+# Python (ai-server)
+ai-server/__pycache__/
+ai-server/*.pyc
+ai-server/.env
+
+# React (client)
+client/node_modules/
+client/build/
+client/.env
+
+# Logs
+*.log
+
+# Misc
+.DS_Store
