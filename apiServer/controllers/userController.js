@@ -31,4 +31,12 @@ const register =  async (req, res) => {
 }
 ;
 
-module.exports = { createUser,register };
+const trummp =  async (req, res) => {
+    res.status(201).json({
+        message: 'Ucicd runned successully'
+      });
+
+}
+;
+
+module.exports = { createUser,register,trummp };
