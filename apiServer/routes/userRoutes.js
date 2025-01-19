@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { createUser,register,trummp } = require('../controllers/userController');
-const { createUserSchema, validate } = require('../validations/userValidation');
+const { createUser,register,trummp,userLogin } = require('../controllers/userController');
+const { createUserSchema, validate, userLogins } = require('../validations/userValidation');
 
 
 // Define a test route
@@ -16,6 +16,10 @@ router.post('/test', (req, res) => {
 
 
   router.post('/trial', trummp);
+
+
+  router.post('/login', validate(userLogins), userLogin);
+
 
 
   module.exports = router;

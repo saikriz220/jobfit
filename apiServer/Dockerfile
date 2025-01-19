@@ -1,20 +1,16 @@
-# Step 1: Use the Node.js base image
-FROM node:18-alpine
 
-# Step 2: Set the working directory inside the container
+
+# Stage 2: Setup API server
+FROM node:18
 WORKDIR /usr/src/app
 
-# Step 3: Copy the package.json and package-lock.json files
+# Copy API server files
 COPY package*.json ./
-
-# Step 4: Install Node.js dependencies
 RUN npm install
-
-# Step 5: Copy the rest of the application code into the container
 COPY . .
 
-# Step 6: Expose the application port
-EXPOSE 5000
+# Copy React build files from Stage 1
 
-# Step 7: Define the default command to run your app
-CMD ["npm", "start"]
+# Expose port and start the API server
+EXPOSE 5000
+CMD ["node", "index.js"]

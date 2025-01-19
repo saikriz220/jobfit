@@ -6,8 +6,18 @@ const createUserSchema = Joi.object({
     last_name: Joi.string().min(2).max(50).required(),
     email: Joi.string().email().required(),
     password: Joi.string().min(8).required(), // Password will be hashed later
-    usertype: Joi.number().integer().min(0).max(1).required(),
+    usertype: Joi.number().integer().min(0).max(4).required(),
 });
+
+
+
+const userLogins = Joi.object({
+     email: Joi.string().email().required(),
+      password: Joi.string().min(8).required(), // Password will be hashed later
+});
+
+
+
 
 const validate = (schema) => (req, res, next) => {
     const { error } = schema.validate(req.body);
@@ -22,7 +32,8 @@ const validate = (schema) => (req, res, next) => {
 
 module.exports = { 
     createUserSchema,
-    validate
+    validate,
+    userLogins
 
 
 

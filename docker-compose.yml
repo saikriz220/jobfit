@@ -1,0 +1,25 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./client  # Path to your React app (client folder)
+    ports:
+      - "3000:3000"  # Expose React app on port 3000
+    depends_on:
+      - backend  # Ensure backend is up before starting frontend
+    environment:
+      - REACT_APP_API_URL=http://backend:5000  # Set the API URL for the React app
+
+  backend:
+    build:
+      context: ./apiServer  # Path to your Node.js API server (apiServer folder)
+    ports:
+      - "5000:5000"  # Expose API server on port 5000
+    environment:
+      - DB_HOST=dpg-cu5p99tsvqrc738b3410-a.virginia-postgres.render.com
+      - DB_PORT=5432
+      - DB_USER=admin
+      - DB_PASSWORD=3PKQO8Hfoi8CiJYSBN56pLKuiPQwRBZb
+      - DB_NAME=jobfit
+
+ 
