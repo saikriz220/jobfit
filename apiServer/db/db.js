@@ -13,4 +13,7 @@ const pool = new Pool({
   },
 });
 
+pool.query(`SET search_path TO ${process.env.DB_SCHEMA};`);
+
+
 module.exports = pool;
