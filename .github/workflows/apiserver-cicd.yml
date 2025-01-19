@@ -39,8 +39,8 @@ jobs:
 
       # Step 5: Deploy to Render
       - name: Deploy to Render
-        run: |
-          curl -X POST -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
-          -H "Content-Type: application/json" \
-          -d '{"serviceId":"your-service-id"}' \
-          https://api.render.com/deploy
+  run: |
+    curl -X POST -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+    -H "Content-Type: application/json" \
+    -d '{"serviceId":"${{ secrets.SERVICE_ID }}"}' \
+    https://api.render.com/deploy
